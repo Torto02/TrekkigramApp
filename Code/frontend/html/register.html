@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="/css/register.css" />
+
+<div class="container">
+  <div class="app-header mb-4">
+    <img
+      src="./../src/img/Logoapp.png"
+      alt="Trekkigram Logo"
+      class="app-logo"
+    />
+    <h1 class="app-name">Trekkigram</h1>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 registerForm d-none">
+      <h2 class="text-center mb-5">Crea il tuo account</h2>
+
+      <div class="mb-3 text-center">
+        <label class="form-label">Immagine Profilo</label>
+        <div class="profile-image-container mx-auto">
+          <img
+            id="profileImagePreview"
+            src=""
+            alt="Immagine profilo"
+            style="display: none"
+          />
+          <i
+            id="profileImagePlaceholder"
+            class="bi bi-person-plus-fill ms-3"
+            style="font-size: 6rem"
+          ></i>
+          <button
+            type="button"
+            id="removeProfileImage"
+            class="btn btn-danger btn-sm"
+            style="display: none; position: absolute; top: 15px; right: 25px"
+          >
+            x
+          </button>
+        </div>
+        <input
+          type="file"
+          id="profileImageInput"
+          accept="image/*"
+          style="display: none"
+        />
+      </div>
+
+      <form id="registerForm">
+        <div class="mb-3">
+          <label for="RegisterEmail" class="form-label">Indirizzo Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="RegisterEmail"
+            required
+          />
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label for="Name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="Name" required />
+          </div>
+          <div class="col-md-6">
+            <label for="Surname" class="form-label">Cognome</label>
+            <input type="text" class="form-control" id="Surname" required />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="Username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" required />
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="Password" required />
+        </div>
+        <div class="mb-3">
+          <label for="ConfirmPassword" class="form-label"
+            >Ripeti password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="ConfirmPassword"
+            required
+          />
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+          <p class="mb-0 me-2">Imposta la privacy del profilo:</p>
+          <div class="btn-group" role="group" aria-label="Seleziona la privacy">
+            <input
+              type="radio"
+              class="btn-check"
+              name="privacy"
+              id="privacyPrivate"
+              value="private"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-danger" for="privacyPrivate"
+              >Privata</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="privacy"
+              id="privacyPublic"
+              value="public"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-success" for="privacyPublic"
+              >Pubblica</label
+            >
+          </div>
+        </div>
+        <div id="privacyMessage" class="text-end mt-2">
+          <p class="text-muted">
+            I tuoi post saranno visibili solo ai tuoi amici
+          </p>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+          <button id="SubmitBtn" type="submit" class="btn btn-primary">
+            Registrati
+          </button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+        <p>
+          Hai già un account?
+          <a id="loginLink" class="text-primary">Accedi</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script src="/js/presenters/RegisterPresenter.js"></script> -->
+<script type="module" src="/js/presenters/RegisterPresenter.js"></script>

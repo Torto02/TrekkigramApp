@@ -1,0 +1,15 @@
+<div style="text-align: center; margin-top: 10rem">
+  <img src="/src/img/404.png" alt="404" style="width: 10rem" />
+  <h1 style="font-size: 7rem">404</h1>
+  <h2 style="padding-top: 2rem">Questa pagina non esiste :(</h2>
+
+  <button class="btn btn-primary mt-5 p-3 GoHomeBtn">Torna alla Home</button>
+</div>
+
+<script type="module">
+  import { getRouterInstance } from "../js/router.js"; // Import the router instance
+  const router = getRouterInstance(); // Get the router instance
+  document.querySelector(".GoHomeBtn").addEventListener("click", () => {
+    router.navigate("/"); // Use the navigate method to go back to home
+  });
+</script>

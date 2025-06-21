@@ -1,0 +1,58 @@
+services:
+  web-server:
+    container_name: web-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/var/www/html
+      - ./backend:/var/www/api
+    ports:
+      - "80:80"
+      - "8080:8080"
+    environment:
+      - MYSQL_HOST=database
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    depends_on:
+      - database
+    restart: always
+
+  database:
+    container_name: database
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+    volumes:
+      - db_data:/var/lib/mysql
+      # - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql #per ricreare un database vuoto
+      # Per inizializzare il database con un file SQL di backup
+      - ./db/backup.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "${MYSQL_PORT}:3306"
+    restart: always
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      - PMA_HOST=database
+      - PMA_USER=root
+      - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - PMA_PORT=3306
+    ports:
+      - "8082:80"
+
+volumes:
+    db_data:
+
+    #Comando per fare backup del database
+    #docker exec -i database mysqldump -u root -proot_password --databases Trekking_db > db/backup.sql
+    #Alla fine del progetto è da cambiare e inserire i dati in init.sql
+

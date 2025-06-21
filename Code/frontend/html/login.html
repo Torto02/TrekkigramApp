@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/css/login.css" />
+
+<div class="container-sm">
+  <div class="app-header mb-4">
+    <img
+      src="./../src/img/Logoapp.png"
+      alt="Trekkigram Logo"
+      class="app-logo"
+    />
+    <h1 class="app-name">Trekkigram</h1>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 loginForm d-none">
+      <h2 class="text-center mb-4">Accedi</h2>
+      <!-- Add error message div here -->
+      <div
+        id="errorMessage"
+        class="alert alert-danger d-none"
+        role="alert"
+      ></div>
+      <form class="loginInfo" id="loginForm" onsubmit="return false;">
+        <div class="mb-3">
+          <label for="InputEmail" class="form-label">Indirizzo Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="InputEmail"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            Non condivideremo la tua mail con nessun altro.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="InputPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="InputPassword" />
+        </div>
+        <div class="registerSection mb-3">
+          <button
+            id="loginBtn"
+            type="submit"
+            class="btn btn-primary w-100 mb-3"
+          >
+            Login
+          </button>
+          <p class="m-0 mb-3 mb-2 text-center">Oppure</p>
+          <button
+            id="registerRedirectionBtn"
+            type="button"
+            class="btn btn-outline-primary w-100"
+          >
+            Registrati
+          </button>
+        </div>
+      </form>
+      <div class="d-flex justify-content-center"></div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/js/presenters/LoginPresenter.js"></script>
+<script>
+  // Aggiungi questo script per gestire il tasto Invio
+  document.addEventListener("DOMContentLoaded", function () {
+    const emailInput = document.getElementById("InputEmail");
+    const passwordInput = document.getElementById("InputPassword");
+    const loginForm = document.getElementById("loginForm");
+
+    function handleEnterKey(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("loginBtn").click();
+      }
+    }
+
+    emailInput.addEventListener("keydown", handleEnterKey);
+    passwordInput.addEventListener("keydown", handleEnterKey);
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("loginBtn").click();
+    });
+  });
+</script>

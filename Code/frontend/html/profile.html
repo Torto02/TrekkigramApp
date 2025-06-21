@@ -1,0 +1,185 @@
+<link rel="stylesheet" href="/css/profile.css" />
+<div class="container pb-5 profileContainer w-75 d-none">
+  <div class="profile-card">
+    <div class="row g-4">
+      <!-- Immagine profilo -->
+      <div class="col-lg-4 col-md-4 col-4 text-center">
+        <div class="profile-img-container">
+          <img
+            class="profile-img"
+            alt="Profile image"
+            onerror="this.outerHTML='<i class=&quot;bi bi-person-fill profile-img-icon&quot;></i>'"
+          />
+        </div>
+      </div>
+
+      <!-- Informazioni profilo -->
+      <div class="col-lg-8 col-md-8 col-8">
+        <div class="d-flex align-items-center">
+          <h2 id="ProfileUsername" class="me-4 mb-0"></h2>
+          <!-- Azioni profilo inline con username -->
+          <div class="profile-actions d-flex gap-2"></div>
+        </div>
+
+        <div class="stats-container mb-3">
+          <div class="stat-item">
+            <span class="stat-count" id="postsNum"></span>
+            <span class="stat-label">post</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-count" id="friendNum"></span>
+            <span class="stat-label">amici</span>
+          </div>
+        </div>
+
+        <div class="profile-bio">
+          <div class="profile-name">
+            <span id="uName" class="fw-bold"></span>
+            <span id="uSurname" class="fw-bold"></span>
+          </div>
+          <p class="description-text" id="description"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="editProfileModal"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modifica Profilo</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="editProfileForm">
+            <div class="text-center mb-4">
+              <div
+                class="profile-image-edit-container position-relative mb-3 d-inline-block"
+              >
+                <div class="profile-preview-wrapper">
+                  <div class="profile-image-placeholder">
+                    <i class="bi bi-person-fill"></i>
+                  </div>
+                  <img id="profileImagePreview" class="preview-image" />
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-1 d-flex align-items-center justify-content-center"
+                  id="removePreviewImage"
+                  aria-label="Rimuovi immagine"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+
+              <div class="d-flex flex-column align-items-center gap-2">
+                <div class="position-relative">
+                  <button class="btn btn-primary upload-btn">
+                    <i class="bi bi-upload me-2"></i>Carica immagine
+                  </button>
+                  <input
+                    type="file"
+                    id="profileImageInput"
+                    accept="image/*"
+                    class="position-absolute top-0 start-0 opacity-0 w-100 h-100"
+                    style="cursor: pointer"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="profilePrivacy" class="form-label"
+                >Privacy Profilo</label
+              >
+              <select id="profilePrivacy" class="form-select">
+                <option value="public">Pubblico</option>
+                <option value="private">Privato</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="profileDescription" class="form-label"
+                >Descrizione</label
+              >
+              <textarea
+                id="profileDescription"
+                class="form-control"
+                rows="3"
+                placeholder="Scrivi qui la tua biografia..."
+              ></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Annulla
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="saveProfileChangesBtn"
+          >
+            Salva modifiche
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs profile-tabs" id="tabSelector" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="tab-link active"
+        id="posts-tab"
+        data-bs-toggle="tab"
+        href="#tabPosts"
+        role="tab"
+        aria-controls="tabPosts"
+        aria-selected="true"
+      >
+        <i class="bi bi-grid-3x3 me-2"></i>Post
+      </a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="tab-link"
+        id="partecipations-tab"
+        data-bs-toggle="tab"
+        href="#tabPartecipations"
+        role="tab"
+        aria-controls="tabPartecipations"
+        aria-selected="false"
+      >
+        <i class="bi bi-calendar-event me-2"></i>Partecipazioni
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="profileTabsContent">
+    <div class="tab-pane fade show active" id="tabPosts" role="tabpanel">
+      <div class="post-grid" id="postsContainer"></div>
+    </div>
+    <div class="tab-pane fade" id="tabPartecipations" role="tabpanel">
+      <div class="post-grid" id="partecipazioniContainer"></div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/js/presenters/ProfilePresenter.js"></script>

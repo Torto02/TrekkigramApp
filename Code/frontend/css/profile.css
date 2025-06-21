@@ -1,0 +1,744 @@
+/* Modern Profile Page CSS */
+:root {
+  --primary-color: #3897f0;
+  --primary-light: #e8f1fd;
+  --secondary-color: #1a2b3c;
+  --accent-color: #00c6ff;
+  --light-gray: #f5f5f5;
+  --medium-gray: #e0e0e0;
+  --dark-gray: #939393;
+  --text-color: #33333a;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-round: 50%;
+  --padding-sm: 0.6rem 1.2rem;
+  --padding-md: 1rem 1.5rem;
+  --padding-lg: 1.5rem 2rem;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  padding-left: 90px;
+}
+
+.div {
+  border: none;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+
+/* Profile card - Instagram style */
+.profile-card {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 50px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+/* Profile image - Instagram style */
+.profile-img-container {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--border-radius-round);
+  padding: 12px;
+}
+
+.profile-img,
+.profile-img-icon {
+  width: 150px;
+  height: 150px;
+  border-radius: var(--border-radius-round);
+  transition: var(--transition);
+  border: 3px solid white;
+}
+
+.profile-img {
+  object-fit: cover;
+}
+
+.profile-img-icon {
+  font-size: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+/* Username styling - Instagram style */
+#ProfileUsername {
+  font-weight: 300 !important;
+  font-size: 2rem !important;
+  color: #262626;
+}
+
+/* Profile stats - Instagram style */
+.stats-container {
+  margin-top: 0.8rem;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-count {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #262626;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #262626;
+  font-weight: 400;
+}
+
+/* Profile bio - Instagram style */
+.profile-bio {
+  padding-left: 0;
+  border-left: none;
+}
+
+.profile-name {
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 0.5rem;
+}
+
+.description-text {
+  color: #262626;
+  font-size: 1.5vh;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Buttons and actions - Instagram style */
+.btn {
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-actions .btn {
+  border-radius: 50px;
+}
+
+.btn-primary {
+  background-color: #0095f6;
+  border-color: #0095f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1877f2;
+  border-color: #1877f2;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-outline-primary {
+  color: #0095f6;
+  border-color: #dbdbdb;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f2f2f2;
+  color: #0095f6;
+  border-color: #dbdbdb;
+  transform: none;
+}
+/* 
+.btn-success {
+  background-color: #0095f6;
+  border-color: #0095f6;
+}
+
+.btn-success:hover {
+  background-color: #1877f2;
+  border-color: #1877f2;
+} */
+
+.btn-danger {
+  background-color: transparent;
+  border-color: #dbdbdb;
+  color: #ff0000;
+}
+
+.profile-cancel-logout-btn {
+  background-color: transparent;
+  border-color: #dbdbdb;
+  color: #595959;
+}
+
+.btn-danger:hover {
+  background-color: #ff0000;
+  border-color: #dbdbdb;
+  color: #ffffff;
+}
+
+.btn-warning {
+  background-color: transparent;
+  border-color: #dbdbdb;
+  color: #262626;
+}
+
+.btn-warning:hover {
+  background-color: #f2f2f2;
+  border-color: #dbdbdb;
+  color: #262626;
+}
+
+/* Friendship buttons styling - Instagram style */
+.friendship-buttons-group {
+  width: 100%;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.friend-request-container {
+  width: 100%;
+}
+
+.accept-friend-btn,
+.reject-friend-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+
+  transition: var(--transition);
+  font-weight: 600;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.accept-friend-btn i,
+.reject-friend-btn i {
+  margin-right: 6px;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* .accept-friend-btn {
+  background-color: #0095f6;
+  border-color: #0095f6;
+  color: white;
+}
+
+.accept-friend-btn:hover {
+  background-color: #1877f2;
+  border-color: #1877f2;
+  transform: none;
+  box-shadow: none;
+}
+
+.reject-friend-btn {
+  background-color: transparent;
+  border-color: #dbdbdb;
+  color: #262626;
+}
+
+.reject-friend-btn:hover {
+  background-color: #f2f2f2;
+  border-color: #dbdbdb;
+  color: #262626;
+} */
+
+/* Profile options panel - Instagram style */
+.profile-options-container {
+  position: relative;
+}
+
+.profile-options-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  min-width: 200px;
+  z-index: 100;
+  display: none;
+}
+
+.profile-options-panel.show {
+  display: block;
+}
+
+.profile-options-panel .btn {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #262626;
+  text-align: left;
+  width: 100%;
+  padding: 12px 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.profile-options-panel .btn:hover {
+  background-color: #f2f2f2;
+}
+
+.profile-options-panel .btn-outline-danger {
+  color: #ed4956;
+}
+
+.profile-options-panel .btn-outline-danger:hover {
+  background-color: #f2f2f2;
+  color: #ed4956;
+}
+
+/* Tabs */
+.profile-tabs {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+}
+
+.profile-tabs .nav-link,
+.profile-tabs .tab-link {
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.7rem 1.5rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: var(--transition);
+}
+
+.profile-tabs .nav-link.active,
+.profile-tabs .tab-link.active {
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+  border: none;
+}
+
+.profile-tabs .nav-link:hover:not(.active),
+.profile-tabs .tab-link:hover:not(.active) {
+  background-color: var(--medium-gray);
+}
+
+/* Post grid */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+/* Post item */
+.post {
+  position: relative;
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.post .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.post:hover .overlay {
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+}
+
+.post:hover img {
+  transform: scale(1.05);
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Modal styling */
+.modal-content {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--medium-gray);
+  padding: var(--padding-md);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--medium-gray);
+  padding: var(--padding-md);
+}
+
+/* Preview image in modal */
+.preview-image {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius-round);
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form elements */
+.form-control,
+.form-select {
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--medium-gray);
+  padding: 0.7rem 1rem;
+  transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(56, 151, 240, 0.15);
+}
+
+/* Enhanced Profile Edit Modal */
+.profile-image-edit-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+}
+
+.profile-preview-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--primary-light);
+  overflow: hidden;
+  position: relative;
+  background-color: #f8f9fa;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-gray);
+  top: 0;
+  left: 0;
+}
+
+.profile-image-placeholder i {
+  font-size: 5rem;
+  color: var(--dark-gray);
+}
+
+#profileImagePreview {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  box-shadow: none;
+}
+
+#profileImagePreview:not([src]),
+#profileImagePreview[src=""] {
+  display: none;
+}
+
+#removePreviewImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  z-index: 3;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+#removePreviewImage:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.upload-btn {
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+}
+
+#editProfileForm input[type="file"] {
+  cursor: pointer;
+}
+
+/* Enhanced modal styling */
+#editProfileModal .modal-content {
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#editProfileModal .modal-header {
+  background-color: var(--primary-light);
+  border-bottom: none;
+}
+
+#editProfileModal .modal-title {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+#editProfileModal .modal-footer {
+  border-top: 1px solid var(--light-gray);
+}
+
+#editProfileModal .form-label {
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+/* Media queries - updated for Instagram style */
+@media (max-width: 1300px) {
+  .container {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0px;
+  }
+
+  .profile-img,
+  .profile-img-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  #ProfileUsername {
+    font-size: 1.75rem !important;
+  }
+
+  .stats-container {
+    gap: 1.5rem;
+  }
+
+  /* Adjust friendship buttons for medium screens */
+  .friendship-buttons-group {
+    gap: 0.35rem;
+  }
+
+  .accept-friend-btn,
+  .reject-friend-btn {
+    padding: 5px 12px;
+    font-size: 13px;
+  }
+
+  .accept-friend-btn i,
+  .reject-friend-btn i {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .profile-card {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .profile-card .row {
+    align-items: flex-start;
+  }
+
+  .profile-card .col-4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .profile-img,
+  .profile-img-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  #ProfileUsername {
+    font-size: 1.5rem !important;
+  }
+
+  .stats-container {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-count,
+  .stat-label {
+    font-size: 0.9rem;
+  }
+
+  .profile-actions {
+    text-align: center;
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .friendship-buttons-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .accept-friend-btn,
+  .reject-friend-btn {
+    width: 100%;
+  }
+
+  /* Opzioni profilo mobile - solo icona */
+  .profileOptionsBtn {
+    padding: 8px;
+    min-width: 40px;
+  }
+
+  .profileOptionsBtn span {
+    display: none;
+  }
+
+  .post-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .profile-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .profile-img,
+  .profile-img-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  #ProfileUsername {
+    font-size: 1.25rem !important;
+  }
+
+  .stats-container {
+    gap: 0.75rem;
+  }
+
+  .stat-count,
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  .profileOptionsBtn {
+    padding: 6px;
+    min-width: 36px;
+  }
+
+  .post-grid {
+    gap: 0.15rem;
+  }
+
+  .preview-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Logout modal */
+#profileLogoutModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.delete-confirm-modal {
+  max-width: 400px;
+  margin: 15% auto;
+  border-radius: var(--border-radius-md);
+}
+
+.delete-icon {
+  font-size: 3rem;
+}
+
+@media (max-width: 991px) {
+  #mainContent {
+    padding-top: 0px;
+  }
+}

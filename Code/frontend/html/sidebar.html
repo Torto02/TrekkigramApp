@@ -1,0 +1,232 @@
+<link rel="stylesheet" href="/css/sidebar.css" />
+<!-- Main container with sidebar and content -->
+
+<div class="sidebarVisibility d-none">
+  <div class="sidebarContent container-fluid p-0">
+    <div class="d-flex">
+      <!-- Left Sidebar -->
+      <aside class="left-sidebar">
+        <!-- Navigation Items -->
+        <nav class="sidebar-nav">
+          <ul class="list-unstyled">
+            <!-- Logo -->
+            <li class="sidebar-item">
+              <a class="sidebar-link app-logo">
+                <i class="sidebar-logo-container">
+                  <img
+                    src="/src/img/LogoApp.png"
+                    alt="Logo"
+                    class="sidebar-logo-img"
+                  />
+                </i>
+                <span class="sidebar-text">Trekkigram</span>
+              </a>
+            </li>
+
+            <!-- User Profile Card -->
+            <li class="sidebar-item">
+              <a id="profileCard" class="sidebar-link">
+                <i class="user-photo">
+                  <!-- Profile image will be loaded here -->
+                  <i class="bi bi-person-circle"></i>
+                </i>
+                <span class="sidebar-text">
+                  <div id="UserBio">User Name</div>
+                  <div id="Username" class="text-muted small">@username</div>
+                </span>
+              </a>
+            </li>
+
+            <!-- Home Button -->
+            <li class="sidebar-item">
+              <a id="homeBTN" class="sidebar-link">
+                <i class="bi bi-house-door-fill"></i>
+                <span class="sidebar-text">Home</span>
+              </a>
+            </li>
+
+            <!-- Participations Button -->
+            <li class="sidebar-item">
+              <a id="partecipationBTN" class="sidebar-link">
+                <i class="bi bi-calendar-check"></i>
+                <span class="sidebar-text">Partecipazioni</span>
+              </a>
+            </li>
+
+            <!-- Notifications Button -->
+            <li class="sidebar-item">
+              <a id="notificationBTN" class="sidebar-link">
+                <i class="bi bi-bell-fill"></i>
+                <span class="sidebar-text">Notifiche</span>
+              </a>
+            </li>
+
+            <!-- Search Button -->
+            <li class="sidebar-item">
+              <a id="searchBTN" class="sidebar-link">
+                <i class="bi bi-search"></i>
+                <span class="sidebar-text">Cerca</span>
+              </a>
+            </li>
+
+            <!-- Create Post Button -->
+            <li class="sidebar-item">
+              <a class="sidebar-link createEventBtn">
+                <i class="bi bi-plus-circle-fill p-0"></i>
+                <span class="sidebar-text">Crea evento</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+
+  <nav class="mobile-navbar">
+    <div class="container">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a id="mobileHomeBTN">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a id="mobilePartecipationBTN">
+            <i class="bi bi-calendar-check"></i>
+            <span>Eventi</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a id="mobileCreateEventBtn" class="mobile-create-btn">
+            <div class="create-icon">
+              <i class="bi bi-plus-lg"></i>
+            </div>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a id="mobileNotificationBTN">
+            <i class="bi bi-bell-fill"></i>
+            <span>Notifiche</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a id="mobileProfileBTN">
+            <i class="bi bi-person-circle"></i>
+            <span>Profilo</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Floating search button (visible only on homepage) -->
+  <div id="floatingSearchBtn" class="floating-search-btn d-none">
+    <i class="bi bi-search"></i>
+  </div>
+
+  <div id="searchPanel" class="sidebar-panel">
+    <div class="panel-header">
+      <h5>Cerca utenti</h5>
+      <button id="searchCloseBtn" class="btn btn-sm btn-outline-secondary">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="panel-body">
+      <div class="search-input-container">
+        <input
+          type="text"
+          id="searchUserInput"
+          class="form-control mb-3"
+          placeholder="Cerca utenti..."
+        />
+        <button id="clearSearchBtn" class="clear-search-btn">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <div id="notificationPanel" class="sidebar-panel">
+    <div class="panel-header">
+      <h5>Notifiche</h5>
+      <button
+        id="notificationCloseBtn"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="panel-body">
+      <!-- Notification Tabs -->
+      <ul class="nav nav-tabs mb-3 gap-2" id="notificationTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="friendRequests-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#friendRequests"
+            type="button"
+            role="tab"
+            aria-controls="friendRequests"
+            aria-selected="true"
+          >
+            Richieste di amicizia
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="eventInvites-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#eventInvites"
+            type="button"
+            role="tab"
+            aria-controls="eventInvites"
+            aria-selected="false"
+          >
+            Inviti Eventi
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab content -->
+      <div class="tab-content" id="notificationTabsContent">
+        <div
+          class="tab-pane fade show active"
+          id="friendRequests"
+          role="tabpanel"
+          aria-labelledby="friendRequests-tab"
+        >
+          <div class="friends-results"></div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="eventInvites"
+          role="tabpanel"
+          aria-labelledby="eventInvites-tab"
+        >
+          <div class="invites-results"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="partecipationPanel" class="sidebar-panel">
+    <div class="panel-header">
+      <h5>Le tue partecipazioni</h5>
+      <button
+        id="partecipationCloseBtn"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="panel-body">
+      <div class="partecipation-results"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/js/presenters/SidebarPresenter.js"></script>
+</div>

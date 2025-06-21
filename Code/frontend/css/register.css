@@ -1,0 +1,268 @@
+/* register.css - Stile minimale, elegante e moderno */
+
+/* Colori e variabili personalizzate */
+:root {
+  --primary-color: #3897f0;
+  --primary-hover: #1f62c6;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --accent-color: #f8f9fa;
+  --text-color: #333;
+  --light-gray: #e9ecef;
+  --border-radius: 10px;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: var(--text-color);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Stile per l'header dell'app */
+.app-header {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+
+#SubmitBtn {
+  padding: 0.5rem 6rem;
+}
+
+.registerForm {
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.registerForm h2 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.form-control {
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 0.75rem;
+  transition: var(--transition);
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(74, 109, 167, 0.15);
+}
+
+/* Stile per i bottoni e gruppi di bottoni */
+.btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #5a6268;
+  border-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus,
+.btn-check:checked + .btn-outline-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-outline-success {
+  color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-check:checked + .btn-outline-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.btn-group {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 90px;
+}
+
+.btn-group label {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* Stile per l'upload dell'immagine profilo */
+.profile-image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0.5rem;
+  border: 2px dashed #ced4da;
+  transition: var(--transition);
+}
+
+.profile-image-container:hover {
+  border-color: var(--primary-color);
+}
+
+#profileImagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#removeProfileImage {
+  opacity: 0;
+  transition: var(--transition);
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+}
+
+.profile-image-container:hover #removeProfileImage {
+  opacity: 1;
+}
+
+#uploadProfileImageBtn {
+  border-radius: 20px;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+}
+
+/* Testo per privacy */
+#privacyMessage p {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.registerForm {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Stile per il link di login */
+#loginLink {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+#loginLink:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Riduzione spazi verticali */
+.mb-3 {
+  margin-bottom: 0.75rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-5 {
+  margin-top: 1.5rem !important;
+}
+
+.mt-3 {
+  margin-top: 0.75rem !important;
+}
+
+/* Media queries per la responsività */
+@media (max-width: 768px) {
+  .registerForm {
+    padding: 1rem;
+  }
+
+  .btn-group label {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .profile-image-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  #profileImagePlaceholder {
+    font-size: 4rem !important;
+  }
+}

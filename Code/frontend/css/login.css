@@ -1,0 +1,188 @@
+/* login.css - Stile minimale, elegante e moderno */
+
+/* Colori e variabili personalizzate */
+:root {
+  --primary-color: #3897f0;
+  --primary-hover: #1f62c6;
+  --accent-color: #f8f9fa;
+  --text-color: #333;
+  --light-gray: #e9ecef;
+  --border-radius: 10px;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: var(--text-color);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Stile per l'header dell'app */
+.app-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+
+.loginForm {
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  margin-top: 2rem;
+  position: relative;
+  transition: var(--transition);
+  width: 40%;
+}
+
+.loginForm h2 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  transition: var(--transition);
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(74, 109, 167, 0.15);
+}
+
+.form-text {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: var(--primary-hover);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.registerSection {
+  margin-top: 2rem;
+}
+
+.registerSection p {
+  position: relative;
+  text-align: center;
+  color: #6c757d;
+}
+
+.registerSection p::before,
+.registerSection p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: var(--light-gray);
+}
+
+.registerSection p::before {
+  left: 0;
+}
+
+.registerSection p::after {
+  right: 0;
+}
+
+.alert {
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loginForm {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@media (max-width: 1000px) {
+  .loginForm {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .loginForm {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    width: 100% !important;
+  }
+}
+
+/* Media queries per la responsività */
+/* @media (max-width: 765px) {
+  .loginForm {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    width: 80% !important;
+  }
+} */

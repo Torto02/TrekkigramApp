@@ -1,0 +1,262 @@
+<link rel="stylesheet" href="/css/event.css" />
+<div class="container mainContent pb-5 d-none">
+  <!-- Hero section con prima immagine in background -->
+  <div class="event-hero mb-4">
+    <div class="event-image event-hero-background">
+      <img alt="Evento" class="img-fluid" />
+    </div>
+    <div class="event-hero-content">
+      <h1 class="event-title display-4"></h1>
+      <div class="d-flex gap-2 flex-wrap">
+        <button id="participationBtn" class="btn btn-lg btn-primary">
+          <i class="bi bi-check2-circle me-2"></i><span></span>
+        </button>
+        <button id="toggleParticipants" class="btn btn-light border-secondary">
+          <i class="bi bi-people-fill me-2"></i>Partecipanti
+        </button>
+        <button id="inviteBtn" class="btn btn-light border-secondary">
+          <i class="bi bi-send me-2"></i>Invita
+        </button>
+        <button id="editEventBtn" class="btn btn-warning d-none">
+          <i class="bi bi-pencil-fill me-2"></i>Modifica
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="row g-4">
+    <!-- Colonna sinistra: info e descrizione -->
+    <div class="col-lg-8">
+      <!-- Badge creatore spostato qui -->
+      <div class="event-creator mb-3">
+        <span class="badge rounded-pill creator-badge">
+          <div class="creator-image">
+            <img src="" alt="Immagine profilo" class="creator-profile-img" />
+          </div>
+          <div class="creator-info">
+            <a class="event-author">Autore</a>
+            <small class="creator-role">Organizzatore</small>
+          </div>
+        </span>
+      </div>
+
+      <!-- Info card -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="d-flex align-items-center">
+                <div class="info-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div>
+                  <h6 class="text-muted mb-1">Luogo</h6>
+                  <p class="event-location mb-0 fw-medium">
+                    Località placeholder
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-center">
+                <div class="info-icon">
+                  <i class="bi bi-calendar-event-fill"></i>
+                </div>
+                <div>
+                  <h6 class="text-muted mb-1">Data</h6>
+                  <p class="event-date mb-0 fw-medium">Data/ora placeholder</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-center">
+                <div class="info-icon">
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <div>
+                  <h6 class="text-muted mb-1">Difficoltà</h6>
+                  <p class="event-difficulty mb-0 fw-medium">
+                    Difficoltà placeholder
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Descrizione evento -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-header">
+          <h5 class="mb-0">Descrizione</h5>
+        </div>
+        <div class="card-body p-4">
+          <p class="event-description mb-0">Descrizione placeholder</p>
+        </div>
+      </div>
+
+      <!-- Galleria di immagini -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-header">
+          <h5 class="mb-0">Galleria</h5>
+        </div>
+        <div class="card-body p-3">
+          <div id="imageGallery" class="image-gallery">
+            <!-- Le immagini verranno inserite qui tramite JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonna destra: mappa -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header">
+          <h5 class="mb-0">Posizione</h5>
+        </div>
+        <div class="card-body p-0">
+          <div id="mapContainer" class="card-map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal per la lista dei partecipanti -->
+  <div id="participantsModal" class="modal">
+    <div class="modal-content p-5">
+      <span class="modal-close">&times;</span>
+      <h3 class="mb-4">Partecipanti all'evento</h3>
+      <div id="participantsList" class="participants-list list-group">
+        <!-- La lista degli utenti verrà inserita qui tramite JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal per invitare gli amici -->
+  <div id="friendInvitationsModal" class="modal">
+    <div class="modal-content p-5">
+      <span class="modal-close">&times;</span>
+      <h3 class="mb-3">Invita i tuoi amici</h3>
+      <button id="inviteAllBtn" class="btn btn-primary mb-3">
+        Invita tutti
+      </button>
+      <div id="friendsList" class="list-group">
+        <!-- Qui verrà caricata la lista amici via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal per visualizzare le immagini in grande -->
+  <div id="imageViewerModal" class="modal image-viewer" style="display: flex">
+    <div class="modal-content image-viewer-content">
+      <!-- <span class="modal-close">&times;</span> -->
+      <div class="image-viewer-container">
+        <span class="modal-close" style="color: red">&times;</span>
+        <div id="fullImageCarousel" class="full-image-carousel">
+          <!-- L'immagine verrà inserita qui dinamicamente -->
+        </div>
+        <div class="image-navigation">
+          <button id="prevImage" class="nav-btn">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button id="nextImage" class="nav-btn">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+        <div class="image-counter">1/1</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editEventModal" class="modal">
+    <div class="modal-content p-5">
+      <span class="modal-close">&times;</span>
+      <h3 class="mb-4">Modifica Evento</h3>
+
+      <form id="editEventForm">
+        <!-- Event Name -->
+        <div class="mb-3">
+          <label for="eventName" class="form-label">Nome Evento</label>
+          <input
+            type="text"
+            id="eventName"
+            class="form-control"
+            placeholder="Nome dell'evento"
+          />
+        </div>
+
+        <!-- Event Description -->
+        <div class="mb-3">
+          <label for="eventDescription" class="form-label">Descrizione</label>
+          <textarea
+            id="eventDescription"
+            class="form-control"
+            rows="3"
+            placeholder="Descrizione dell'evento"
+          ></textarea>
+        </div>
+
+        <!-- Event Date -->
+        <div class="mb-3">
+          <label for="eventDate" class="form-label">Data e Ora</label>
+          <input type="datetime-local" id="eventDate" class="form-control" />
+        </div>
+
+        <!-- Event Difficulty -->
+        <div class="mb-3">
+          <label for="eventDifficulty" class="form-label">Difficoltà</label>
+          <select id="eventDifficulty" class="form-select">
+            <option value="1">Facile</option>
+            <option value="2">Medio</option>
+            <option value="3">Difficile</option>
+          </select>
+        </div>
+
+        <div class="d-flex justify-content-between gap-2 mt-4">
+          <button type="button" class="btn btn-danger" id="deleteEventBtn">
+            <i class="bi bi-trash me-2"></i>Elimina Evento
+          </button>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-secondary cancel-edit-btn">
+              Annulla
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveEventChangesBtn"
+            >
+              Salva modifiche
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<!-- <script src="/js/presenters/EventPresenter.js"></script> -->
+<script type="module" src="/js/presenters/EventPresenter.js"></script>
+
+<!-- Delete confirmation modal -->
+<div id="deleteConfirmModal" class="modal">
+  <div class="modal-content p-5 delete-confirm-modal">
+    <span class="modal-close">&times;</span>
+    <div class="text-center mb-4">
+      <i class="bi bi-exclamation-triangle-fill text-danger delete-icon"></i>
+      <h4 class="mt-3">Sei sicuro di voler eliminare questo evento?</h4>
+      <p class="text-muted">Questa azione non può essere annullata.</p>
+    </div>
+    <div class="d-flex justify-content-center gap-3">
+      <button type="button" class="btn btn-secondary cancel-delete-btn">
+        Annulla
+      </button>
+      <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+        Elimina
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/js/presenters/EventPresenter.js"></script>
