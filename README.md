@@ -1,4 +1,6 @@
-# ⛰️ Trekkigram – Social App per il Trekking
+# 🎓 Progetto Universitario
+
+# ⛰️ Trekkigram – Social App Web per il Trekking
 
 ## 📌 Panoramica del Progetto
 
